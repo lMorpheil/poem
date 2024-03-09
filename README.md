@@ -1,19 +1,27 @@
-# poam
+# Название проекта - poem
 
-## Project setup
+## Ссылка на [задание](https://cki42.gitlab.yandexcloud.net/hr/vacancy-web/-/blob/main/TASK2024frontend.md)
+
+## Установка всех зависимостей проекта
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Запуск сервера разработки
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### Билд проекта
+__проект билдится в папку dist__
 ```
 yarn build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## В проекте использовались технологии
+* scss
+* vue v3.2
+* node v18.19.0
+* vue-cli v5.0
+
+
