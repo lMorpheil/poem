@@ -1,4 +1,7 @@
 <script setup>
+import AppBtn from "@/components/UI/AppBtn.vue";
+import AppStanza from "@/components/AppStanza.vue";
+
 const handleClick = (id) => {
   const visibleEl = poem.filter((el) => el.visible);
 
@@ -18,24 +21,22 @@ const { poem } = defineProps({
 
 <template>
   <div class="text">
+
     <div class="btn-block">
-      <button
-          v-for="item in poem"
-          :class="['btn', {active: item.visible}]"
-          type="button"
-          :key="item.id"
-          @click="handleClick(item.id)"
-      ></button>
+      <AppBtn v-for="item in poem"
+              :class="{active: item.visible}"
+              type="button"
+              :key="item.id"
+              @click="handleClick(item.id)"
+      />
     </div>
+
     <div class="poem">
       <template v-for="stanza in poem" :key="stanza.id">
-        <p class="stanza" v-if="stanza.visible">
-          <template v-for="line in stanza.lines">
-            <span>{{ line }}</span><br>
-          </template>
-        </p>
+        <AppStanza :stanza="stanza" />
       </template>
     </div>
+
   </div>
 </template>
 
@@ -59,35 +60,7 @@ const { poem } = defineProps({
   }
 }
 
-.btn {
-  display: block;
-  width: 2rem;
-  height: 2rem;
-  border: 2px solid black;
-  cursor: pointer;
-  padding: 0;
-  background-color: #fff;
-
-  &.active {
-    background-color: black;
-  }
-}
-
 .poem {
   font-size: 2.5rem;
-}
-
-.stanza {
-
-  &:not(:first-child) {
-    margin-top: 1.5rem;
-  }
-
-  > span {
-
-    &:nth-of-type(even) {
-      margin-left: 4rem;
-    }
-  }
 }
 </style>
