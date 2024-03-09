@@ -2,6 +2,12 @@
 import AppBtn from "@/components/UI/AppBtn.vue";
 import AppStanza from "@/components/AppStanza.vue";
 
+const { poem } = defineProps({
+  poem: {
+    type: Array,
+    required: true,
+  }
+})
 const handleClick = (id) => {
   const visibleEl = poem.filter((el) => el.visible);
 
@@ -11,12 +17,6 @@ const handleClick = (id) => {
     }
   })
 }
-const { poem } = defineProps({
-  poem: {
-    type: Array,
-    required: true,
-  }
-})
 </script>
 
 <template>
