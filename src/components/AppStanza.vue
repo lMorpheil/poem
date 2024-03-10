@@ -5,7 +5,7 @@ const { stanza } = defineProps({
 </script>
 
 <template>
-  <p class="stanza" v-if="stanza.visible">
+  <p class="stanza" v-show="stanza.visible">
     <template v-for="line in stanza.lines">
       <span>{{ line }}</span><br>
     </template>
